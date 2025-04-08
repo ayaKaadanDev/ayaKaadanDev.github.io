@@ -3,172 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Aya Kaadan | Portfolio</title>
+    <style>
+        body {
+            scroll-behavior: smooth;
+        }
+        .main h1, .main h4 {
+            margin-bottom: 0.5rem;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .footer p {
+            margin: 0;
+            padding: 1rem 0;
+            text-align: center;
+            color: white;
+        }
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 <body>
-    
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand text-info">Aya Kaadan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="container">
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-link active text-info" aria-current="page">Home</a>
-                        <a class="nav-link" href="#about-me">About Me</a>
-                        <a class="nav-link" href="#skills">Skills</a>
-                        <a class="nav-link" href="#projects">Projects</a>
-                        <a class="nav-link" href="#contact-me">Contact Me</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- main -->
-    <div class="main bg-light" id="main">
-        <div class="container">
-        <div class="row text-center cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-            <div class="col-12 pt-5">
-                <img class="rounded-circle" src="assets/1.jpg" alt="my photo">
-            </div>
-            <div class="col-12 p-2 text-center cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                <h1>Hello there! I'm <span class="text-info"><i>Aya Kaadan</i></span></h1>
-                <h4>I'm a Full Stack Web Developer.</h4>
-            </div>
-        </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand text-info" href="#">Aya Kaadan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-link text-info fw-bold" href="#">Home</a>
+        <a class="nav-link" href="#about-me">About Me</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#contact-me">Contact</a>
+      </div>
     </div>
+  </div>
+</nav>
 
-    <!-- about me -->
-    <div class="about-me bg-info p-1" id="about-me">
-        <div class="container">
-            <h2 class="text-center text-white p-4">About Me</h2>
-            <div class="row">
-                <div class="col-lg-5 col-sm-12 text-center">
-                    <img class="rounded-circle p-2" src="assets/2.png" alt="about me photo">
-                </div>
-                <div class="col-lg-7 col-sm-12  text-center cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                    <h4 class="bg-white">
-                        I'm a full stack web developer with a passion for building beautiful and user friendly website.
-                        I have a strong understanding of both front-end and back-end development, and I'm excited to put my skills to use in progessional setting.
-                        I'm a quick learner and a team player, and I'm confident the I can be a valuable asset to any web development team.
-                    </h4>
-                </div>
-            </div>
-        </div>
+<!-- Hero Section -->
+<section class="main bg-light text-center d-flex flex-column justify-content-center align-items-center vh-100 pt-5" id="main">
+  <img class="rounded-circle mb-4" src="assets/1.jpg" alt="Aya Kaadan" width="150">
+  <h1>Hello there! I'm <span class="text-info">Aya Kaadan</span></h1>
+  <h4 class="text-muted">Full Stack Web Developer</h4>
+</section>
+
+<!-- About Me -->
+<section class="bg-info text-white py-5" id="about-me">
+  <div class="container">
+    <h2 class="text-center section-title">About Me</h2>
+    <div class="row align-items-center">
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <img src="assets/2.png" class="rounded-circle img-fluid" alt="About Me">
+      </div>
+      <div class="col-md-7">
+        <p class="lead bg-white text-dark p-3 rounded shadow">
+          I'm a full stack web developer passionate about building beautiful, user-friendly websites.
+          With a solid foundation in both front-end and back-end technologies, I'm eager to apply my skills in a professional setting.
+          I'm a fast learner, a team player, and ready to contribute meaningfully to any development team.
+        </p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- my skills -->
-    <div class="skills p-1" id="skills">
-        <div class="container">
-            <h2 class="text-center p-4">My Skills</h2>
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 text-center  cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                    <div class="card text-dark mb-3" style="max-width: 18rem;">
-                        <div class="card-header bg-info text-white">Front End</div>
-                        <div class="card-body">
-                        <p class="card-text">HTML<br>CSS<br>Bootstrap</p>
-                        </div>
-                    </div>
-                </div>
-            <div class="col-lg-4 col-sm-6 text-center  cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                <div class="card text-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-info text-white">Back End</div>
-                    <div class="card-body">
-                    <p class="card-text">PHP<br>Laravel<br>MySQL<br>RestFull API</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center  cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                <div class="card text-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header bg-info text-white">Other</div>
-                    <div class="card-body">
-                    <p class="card-text">Git<br>GitHub<br>Postman<br>VS Code</p>
-                    </div>
-                </div>
-            </div>
+<!-- Skills -->
+<section class="py-5" id="skills">
+  <div class="container">
+    <h2 class="text-center section-title">My Skills</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-header bg-info text-white">Front End</div>
+          <div class="card-body">
+            <p>HTML<br>CSS<br>Bootstrap</p>
+          </div>
         </div>
-       </div>
-    </div>
-
-    <!-- my Projects -->
-    <div class="projects bg-info p-1" id="projects">
-        <div class="container">
-            <h2 class="text-center text-white p-4">My Projects</h2>
-            <div class="row p-2">
-                <div class="col-lg-6 p-2 cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                    <div class="card" style="width: 26rem;">
-                        <img src="assets/4.jpg" class="card-img-top" alt="hotel" height="200" width="200">
-                        <div class="card-body">
-                            <h5 class="card-title">Hotel</h5>
-                            <p class="card-text">A web application for a real facility through which all basic operations that take place within this facility can be managed.</p>
-                            <h6>Tech used: HTML, CSS, BootStrap, MySQL, Laravel.</h6>
-                            <a href="https://github.com/ayaKaadanDev/hotel" class="btn btn-info">Source code</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 p-2 cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                    <div class="card" style="width: 26rem;">
-                        <img src="assets/3.jpg" class="card-img-top" alt="counsel" height="200" width="200">
-                        <div class="card-body">
-                            <h5 class="card-title">Counsel</h5>
-                            <p class="card-text">A web application for a digital platform that brings together certified experts from all over the world ready to offer their expertise to anyone who seeks it.</p>
-                            <h6>Tech used: HTML, CSS, BootStrap, MySQL, Laravel.</h6>
-                            <a href="https://github.com/ayaKaadanDev/counsel" class="btn btn-info">Source code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-header bg-info text-white">Back End</div>
+          <div class="card-body">
+            <p>PHP<br>Laravel<br>MySQL<br>RESTful API</p>
+          </div>
         </div>
-    </div>
-
-    <!-- contact me -->
-    <div class="contact-me p-1" id="contact-me">
-        <div class="container">
-            <h2 class="text-center p-4">Contact Me</h2>
-            <div class="row p-2">
-                <!-- <div class="col-lg-4 col-md-6 p-2 text-center  cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center"> -->
-                <div class="col-lg-6 p-2 text-center  cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <a class="btn btn-info" href = "mailto: ayakaadan17@gmail.com" >
-                                <svg class='fontawesomesvg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" width="24">
-                                    <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
-                                </svg>
-                                Email
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 p-2 text-center  cover-container d-flex h-100p-3 flex-column align-items-center justify-content-center">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <a class="btn btn-info" href="https://github.com/ayaKaadanDev">
-                                <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24">
-                                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-                                </svg>
-                                GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-       </div>
-    </div>
-
-    <!-- footer -->
-    <footer class="end bg-info">
-        <div class="container">
-          <p class="lead">Copyright &copy; 2024.All rights reserved, designed and developed by Aya kaadan</p>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center">
+          <div class="card-header bg-info text-white">Tools</div>
+          <div class="card-body">
+            <p>Git<br>GitHub<br>Postman<br>VS Code</p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Projects -->
+<section class="bg-info text-white py-5" id="projects">
+  <div class="container">
+    <h2 class="text-center section-title">My Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card">
+          <img src="assets/4.jpg" class="card-img-top" alt="Hotel Project">
+          <div class="card-body">
+            <h5 class="card-title">Hotel</h5>
+            <p class="card-text">A management web app for hotel facilities covering core operational tasks.</p>
+            <p><strong>Tech:</strong> HTML, CSS, Bootstrap, Laravel, MySQL</p>
+            <a href="https://github.com/ayaKaadanDev/hotel" class="btn btn-info text-white">View Source</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <img src="assets/3.jpg" class="card-img-top" alt="Counsel Project">
+          <div class="card-body">
+            <h5 class="card-title">Counsel</h5>
+            <p class="card-text">A digital platform connecting certified experts with users seeking professional advice.</p>
+            <p><strong>Tech:</strong> HTML, CSS, Bootstrap, Laravel, MySQL</p>
+            <a href="https://github.com/ayaKaadanDev/counsel" class="btn btn-info text-white">View Source</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Contact Me -->
+<section class="py-5" id="contact-me">
+  <div class="container">
+    <h2 class="text-center section-title">Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <a class="btn btn-info text-white" href="mailto:ayakaadan17@gmail.com">
+              <i class="bi bi-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <a class="btn btn-info text-white" href="https://github.com/ayaKaadanDev">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Footer -->
+<footer class="footer bg-info">
+  <div class="container">
+    <p>&copy; 2024 Aya Kaadan. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </body>
 </html>
