@@ -179,28 +179,45 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero py-5">
-        <div class="container py-5 hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <div class="col-lg-6 text-center">
-                        <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_iv4dsx3q.json" background="transparent" speed="1" style="width: 100%; max-width: 400px;" loop autoplay></lottie-player>
-                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    </div>
-                    <img class="rounded-circle mb-4 shadow floating" src="assets/1.jpg" alt="Aya Kaadan" width="150" style="border: 4px solid #17a2b8;">
-                    <h1 class="display-4 fw-bold mb-3">Hello there! I'm <span class="gradient-text">Eng. Aya Kaadan</span></h1>
-                    <h2 class="h4 text-muted mb-4">Full Stack Web Developer</h2>
-                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                        <a href="#projects" class="btn btn-gradient btn-lg px-4">View Work</a>
-                        <a href="#contact" class="btn btn-outline-primary btn-lg px-4">Contact Me</a>
-                    </div>
+<section id="home" class="hero py-5 position-relative" style="background: linear-gradient(to right, #e0f7fa, #ffffff);">
+    <!-- Background Pattern -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('assets/bg-hero.jpg'); background-size: cover; background-position: center; opacity: 0.1;"></div>
+    
+    <div class="container py-5 position-relative">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-4 fw-bold mb-3">Hello, I'm <span class="gradient-text">Eng. Aya Kaadan</span></h1>
+                <h2 class="h4 text-muted mb-4">Full Stack Developer</h2>
+                <p class="lead mb-4">I build web & mobile solutions with clean code and scalable architecture</p>
+                
+                <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                    <a href="#projects" class="btn btn-gradient btn-lg px-4">View My Work</a>
+                    <a href="#contact" class="btn btn-outline-primary btn-lg px-4">Contact Me</a>
                 </div>
-                <div class="col-lg-6 text-center d-none d-lg-block">
-                    <img src="assets/1.jpg" alt="Aya Kaadan" class="img-fluid floating" style="max-width: 80%; border-radius: 20px;">
+                
+                <!-- Tech Badges -->
+                <div class="d-flex flex-wrap gap-2 mt-4 justify-content-center justify-content-lg-start">
+                    <span class="badge bg-light text-dark p-2 small"><i class="fas fa-code me-1"></i> Web Development</span>
+                    <span class="badge bg-light text-dark p-2 small"><i class="fas fa-mobile-alt me-1"></i> Mobile Backend</span>
+                    <span class="badge bg-light text-dark p-2 small"><i class="fas fa-database me-1"></i> Database Design</span>
                 </div>
             </div>
+            
+            <!-- Female Developer Animation -->
+            <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                <lottie-player 
+                    src="https://assets1.lottiefiles.com/packages/lf20_3tlD4U.json" 
+                    background="transparent" 
+                    speed="1" 
+                    style="width: 100%; max-width: 500px; margin: 0 auto;" 
+                    loop 
+                    autoplay>
+                </lottie-player>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     <!-- About Section -->
 <section id="about" class="py-5 bg-info-custom text-white">
