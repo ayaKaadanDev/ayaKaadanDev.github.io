@@ -62,6 +62,32 @@
             position: relative;
             z-index: 1;
         }
+
+        .gradient-text {
+        background: linear-gradient(45deg, #17a2b8, #8338ec);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .tech-stack .badge {
+        transition: all 0.3s;
+    }
+    
+    .tech-stack .badge:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .typed-text {
+        border-right: 2px solid #17a2b8;
+        animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
         
         .gradient-text {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
@@ -179,78 +205,108 @@
     </nav>
 
     <!-- Hero Section -->
-<section id="home" class="hero py-5 position-relative" style="background: linear-gradient(to right, #e0f7fa, #ffffff); min-height: 100vh;">
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('assets/bg-hero.jpg'); background-size: cover; background-position: center; opacity: 0.1;"></div>
-    
-    <div class="container py-5 position-relative h-100">
-        <div class="row align-items-center h-100">
-            <div class="col-12 d-lg-none text-center mb-4">
-                <img src="assets/1.jpg" alt="Aya Kaadan" class="rounded-circle shadow" width="150" style="border: 4px solid #17a2b8;">
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="bg-dark rounded p-3 text-start h-100">
-                    <pre class="text-white m-0" style="font-size: 0.8rem;">
-                        <code class="language-javascript">
-                            // Laravel API Example
-                            Route::post('/auth', function (Request $request) {
-                                $user = User::where('email', $request->email)->first();
-                                
-                                if (!$user) {
-                                    return response()->json(['error' => 'User not found'], 404);
-                                }
-                                
-                                $token = $user->createToken('auth-token')->plainTextToken;
-                                
-                                return response()->json([
-                                    'user' => $user,
-                                    'token' => $token
-                                ]);
-                            });
-                            
-                            // Database Schema Example
-                            Schema::create('projects', function (Blueprint $table) {
-                                $table->id();
-                                $table->string('title');
-                                $table->text('description');
-                                $table->foreignId('user_id')->constrained();
-                                $table->timestamps();
-                            });
-                        </code>
-                    </pre>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 text-center text-lg-start mt-5 mt-lg-0">
-                <div class="d-none d-lg-block text-center mb-4">
-                    <img src="assets/1.jpg" alt="Aya Kaadan" class="rounded-circle shadow" width="150" style="border: 4px solid #17a2b8;">
-                </div>
+<section id="home" class="hero py-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); min-height: 100vh;">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row align-items-center g-5">
+            <!-- Left Side - Profile Content -->
+            <div class="col-lg-6 text-center text-lg-start">
+                <img src="assets/1.jpg" alt="Aya Kaadan" class="rounded-circle shadow mb-4" width="180" style="border: 5px solid rgba(23, 162, 184, 0.3);">
                 
-                <h1 class="display-4 fw-bold mb-3">Eng. Aya Kaadan</h1>
-                <h2 class="h4 text-muted mb-4">Full Stack Developer</h2>
+                <h1 class="display-4 fw-bold mb-3">
+                    <span class="d-block">Hello there!</span>
+                    <span class="gradient-text">I'm Eng. Aya Kaadan</span>
+                </h1>
                 
-                <div class="d-flex flex-column flex-lg-row gap-3 justify-content-center justify-content-lg-start">
+                <h2 class="h4 text-muted mb-4">
+                    <span class="d-block">Full Stack Developer</span>
+                    <span class="text-info">Mobile Backend Specialist</span>
+                </h2>
+                
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-4">
                     <a href="#projects" class="btn btn-gradient btn-lg px-4">
-                        <i class="fas fa-code me-2"></i>View Projects
+                        <i class="fas fa-code me-2"></i> View Projects
                     </a>
                     <a href="#contact" class="btn btn-outline-primary btn-lg px-4">
-                        <i class="fas fa-paper-plane me-2"></i>Contact Me
+                        <i class="fas fa-paper-plane me-2"></i> Hire Me
                     </a>
                 </div>
                 
-                <div class="mt-4">
-                    <span class="badge bg-info text-white p-2 m-1"><i class="fas fa-database me-1"></i> Database Design</span>
-                    <span class="badge bg-info text-white p-2 m-1"><i class="fas fa-mobile-alt me-1"></i> Mobile APIs</span>
-                    <span class="badge bg-info text-white p-2 m-1"><i class="fas fa-server me-1"></i> Backend Solutions</span>
+                <!-- Tech Stack Badges -->
+                <div class="tech-stack">
+                    <span class="badge bg-light text-dark m-1">
+                        <i class="fab fa-laravel text-danger me-1"></i> Laravel
+                    </span>
+                    <span class="badge bg-light text-dark m-1">
+                        <i class="fas fa-database text-info me-1"></i> MySQL
+                    </span>
+                    <span class="badge bg-light text-dark m-1">
+                        <i class="fab fa-php text-primary me-1"></i> PHP
+                    </span>
+                    <span class="badge bg-light text-dark m-1">
+                        <i class="fas fa-mobile-alt text-success me-1"></i> Mobile APIs
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Right Side - Animation -->
+            <div class="col-lg-6 text-center">
+                <lottie-player 
+                    src="https://assets1.lottiefiles.com/packages/lf20_3tlD4U.json" 
+                    background="transparent" 
+                    speed="0.8" 
+                    style="width: 100%; max-width: 600px; margin: 0 auto;" 
+                    loop 
+                    autoplay>
+                </lottie-player>
+                
+                <!-- Animated Typing Effect -->
+                <div class="typing-effect mt-3">
+                    <span class="text-muted">Building </span>
+                    <span class="typed-text text-info fw-bold"></span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+<!-- Lottie Player & Typing Animation Scripts -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script>
+    // Typing Animation
+    const typedTextSpan = document.querySelector(".typed-text");
+    const phrases = ["Secure APIs", "Mobile Backends", "Scalable Databases", "Web Solutions"];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (!isDeleting && charIndex < currentPhrase.length) {
+            typedTextSpan.textContent += currentPhrase.charAt(charIndex);
+            charIndex++;
+        } else if (isDeleting && charIndex > 0) {
+            typedTextSpan.textContent = currentPhrase.substring(0, charIndex-1);
+            charIndex--;
+        }
+        
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(type, 1500);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(type, 500);
+        } else {
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(type, 1000);
+    });
+</script>
+
 
     <!-- About Section -->
 <section id="about" class="py-5 bg-info-custom text-white">
