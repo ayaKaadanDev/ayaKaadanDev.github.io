@@ -1,256 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" href="assets/favicon.png" type="image/png" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
-  <title>Eng.Aya Kaadan | Portfolio</title>
-  <style>
-    body {
-      scroll-behavior: smooth;
-    }
-
-    .main h1, .main h4 {
-      margin-bottom: 0.5rem;
-    }
-
-    .card {
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-      height: 100%;
-    }
-
-    .card:hover {
-      transform: scale(1.015);
-    }
-
-    .card-body {
-      color: black;
-    }
-
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-
-    .footer p {
-      margin: 0;
-      padding: 1rem 0;
-      text-align: center;
-      color: white;
-    }
-
-    .section-title {
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    .project-card .card {
-      min-height: 100%;
-    }
-
-    .project-card {
-      display: flex;
-    }
-
-    @media (max-width: 767.98px) {
-      .card-img-top {
-        height: 180px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng.Aya Kaadan | Full Stack Web Developer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #17a2b8; /* Changed to your info color */
+            --secondary: #6c757d; /* Changed to a complementary color */
+            --dark: #212529;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+        
+        .hero {
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            padding-top: 150px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/bg-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(23, 162, 184, 0.3);
+            color: white;
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+        
+        .tech-badge {
+            background-color: rgba(23, 162, 184, 0.1);
+            color: var(--primary);
+        }
+        
+        .section-title {
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .bg-info-custom {
+            background-color: #17a2b8 !important;
+        }
+    </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold gradient-text" href="#">Eng.Aya Kaadan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-  <div class="container">
-    <a class="navbar-brand text-info" href="#">Eng.Aya Kaadan</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <div class="navbar-nav">
-        <a class="nav-link text-info fw-bold" href="#">Home</a>
-        <a class="nav-link" href="#about-me">About Me</a>
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#contact-me">Contact</a>
-      </div>
-    </div>
-  </div>
-</nav>
+    <!-- Hero Section -->
+    <section id="home" class="hero py-5">
+        <div class="container py-5 hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <img class="rounded-circle mb-4 shadow floating" src="assets/1.jpg" alt="Aya Kaadan" width="150" style="border: 4px solid #17a2b8;">
+                    <h1 class="display-4 fw-bold mb-3">Hello there! I'm <span class="gradient-text">Eng. Aya Kaadan</span></h1>
+                    <h2 class="h4 text-muted mb-4">Full Stack Web Developer</h2>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#projects" class="btn btn-gradient btn-lg px-4">View Work</a>
+                        <a href="#contact" class="btn btn-outline-primary btn-lg px-4">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center d-none d-lg-block">
+                    <img src="assets/1.jpg" alt="Aya Kaadan" class="img-fluid floating" style="max-width: 80%; border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Hero Section -->
-<section class="main text-center d-flex flex-column justify-content-center align-items-center vh-100 position-relative" id="main" style="background: linear-gradient(to right, #e0f7fa, #ffffff);">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: url('assets/bg-hero.jpg'); background-size: cover; background-position: center; opacity: 0.1;"></div>
-  
-  <div class="z-1">
-    <img class="rounded-circle mb-4 shadow" src="assets/1.jpg" alt="Aya Kaadan" width="150" style="border: 4px solid #17a2b8;">
-    <h1 class="fw-bold display-5 text-dark">Hello there! I'm <span class="text-info">Eng. Aya Kaadan</span></h1>
-    <h4 class="text-muted mb-4">Full Stack Web Developer</h4>
-  </div>
-</section>
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-info-custom text-white">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0 text-center">
+                    <img src="assets/2.png" alt="About Me" class="img-fluid rounded-circle shadow" style="max-width: 300px;">
+                </div>
+                <div class="col-lg-7">
+                    <div class="bg-white text-dark p-4 rounded shadow">
+                        <p class="lead mb-0">
+                            I'm a full stack web developer passionate about building beautiful, user-friendly websites.
+                            With a solid foundation in both front-end and back-end technologies, I'm eager to apply my skills in a professional setting.
+                            I'm a fast learner, a team player, and ready to contribute meaningfully to any development team.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- About Me -->
-<section class="bg-info text-white py-5" id="about-me">
-  <div class="container">
-    <h2 class="text-center section-title">About Me</h2>
-    <div class="row align-items-center">
-      <div class="col-md-5 text-center mb-4 mb-md-0">
-        <img src="assets/2.png" class="rounded-circle img-fluid" alt="About Me">
-      </div>
-      <div class="col-md-7">
-        <p class="lead bg-white text-dark p-3 rounded shadow">
-          I'm a full stack web developer passionate about building beautiful, user-friendly websites.
-          With a solid foundation in both front-end and back-end technologies, I'm eager to apply my skills in a professional setting.
-          I'm a fast learner, a team player, and ready to contribute meaningfully to any development team.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title">Technical Skills</h2>
+            <div class="row g-4">
+                <!-- Frontend Skills -->
+                <div class="col-md-4">
+                    <div class="card h-100 skill-card shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="fas fa-laptop-code fa-3x gradient-text"></i>
+                            </div>
+                            <h4 class="mb-3">Frontend</h4>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge tech-badge p-2"><i class="fab fa-html5 me-1"></i> HTML5</span>
+                                <span class="badge tech-badge p-2"><i class="fab fa-css3-alt me-1"></i> CSS3</span>
+                                <span class="badge tech-badge p-2"><i class="fab fa-js me-1"></i> JavaScript</span>
+                                <span class="badge tech-badge p-2"><i class="fab fa-bootstrap me-1"></i> Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="col-md-4">
+                    <div class="card h-100 skill-card shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="fas fa-server fa-3x gradient-text"></i>
+                            </div>
+                            <h4 class="mb-3">Backend</h4>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge tech-badge p-2"><i class="fab fa-php me-1"></i> PHP</span>
+                                <span class="badge tech-badge p-2"><i class="fas fa-server me-1"></i> Laravel</span>
+                                <span class="badge tech-badge p-2"><i class="fas fa-database me-1"></i> MySQL</span>
+                                <span class="badge tech-badge p-2"><i class="fas fa-code me-1"></i> Filament</span>
+                                <span class="badge tech-badge p-2"><i class="fas fa-exchange-alt me-1"></i> RESTful API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Skills -->
+                <div class="col-md-4">
+                    <div class="card h-100 skill-card shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-4">
+                                <i class="fas fa-tools fa-3x gradient-text"></i>
+                            </div>
+                            <h4 class="mb-3">Other Tools</h4>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge tech-badge p-2"><i class="fab fa-git-alt me-1"></i> Git</span>
+                                <span class="badge tech-badge p-2"><i class="fab fa-github me-1"></i> GitHub</span>
+                                <span class="badge tech-badge p-2"><i class="fab fa-bitbucket me-1"></i> Bitbucket</span>
+                                <span class="badge tech-badge p-2"><i class="fas fa-code me-1"></i> VS Code</span>
+                                <span class="badge tech-badge p-2"><i class="fas fa-bolt me-1"></i> Postman</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Skills -->
-<section class="py-5" id="skills">
-  <div class="container">
-    <h2 class="text-center section-title">My Skills</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card text-center h-100">
-          <div class="card-header bg-info text-white">Front End</div>
-          <div class="card-body">
-            <p>HTML<br>CSS<br>JS<br>Bootstrap</p>
-          </div>
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-info-custom text-white">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title">My Projects</h2>
+            <div class="row g-4">
+                <!-- Hotel Project -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 project-card shadow-sm">
+                        <img src="assets/0001.jpg" class="card-img-top project-img" alt="Hotel Project">
+                        <div class="card-body">
+                            <h4 class="card-title">Hotel</h4>
+                            <p class="card-text">A management web app for hotel facilities covering core operational tasks.</p>
+                            <div class="mb-3">
+                                <span class="badge tech-badge me-1">HTML</span>
+                                <span class="badge tech-badge me-1">CSS</span>
+                                <span class="badge tech-badge me-1">Bootstrap</span>
+                                <span class="badge tech-badge me-1">Laravel</span>
+                                <span class="badge tech-badge">MySQL</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="https://github.com/ayaKaadanDev/hotel" class="btn btn-sm btn-gradient flex-grow-1">View Source</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Counsel Project -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 project-card shadow-sm">
+                        <img src="assets/001.jpg" class="card-img-top project-img" alt="Counsel Project">
+                        <div class="card-body">
+                            <h4 class="card-title">Counsel</h4>
+                            <p class="card-text">A digital platform connecting certified experts with users seeking advice.</p>
+                            <div class="mb-3">
+                                <span class="badge tech-badge me-1">HTML</span>
+                                <span class="badge tech-badge me-1">CSS</span>
+                                <span class="badge tech-badge me-1">Bootstrap</span>
+                                <span class="badge tech-badge me-1">Laravel</span>
+                                <span class="badge tech-badge">MySQL</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="https://github.com/ayaKaadanDev/counsel" class="btn btn-sm btn-gradient flex-grow-1">View Source</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Home Harmony -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 project-card shadow-sm">
+                        <img src="assets/hh.png" class="card-img-top project-img" alt="Home Harmony">
+                        <div class="card-body">
+                            <h4 class="card-title">Home Harmony</h4>
+                            <p class="card-text">A renovation & design services platform combining function and style.</p>
+                            <div class="mb-3">
+                                <span class="badge tech-badge me-1">Filament</span>
+                                <span class="badge tech-badge me-1">Laravel</span>
+                                <span class="badge tech-badge">MySQL</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="https://homeharmony.ae" class="btn btn-sm btn-gradient flex-grow-1">View Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- INIBIQ -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 project-card shadow-sm">
+                        <img src="assets/inipiq.png" class="card-img-top project-img" alt="INIBIQ">
+                        <div class="card-body">
+                            <h4 class="card-title">INIBIQ</h4>
+                            <p class="card-text">Modern banking site offering secure and user-friendly experience.</p>
+                            <div class="mb-3">
+                                <span class="badge tech-badge me-1">Filament</span>
+                                <span class="badge tech-badge me-1">Laravel</span>
+                                <span class="badge tech-badge">MySQL</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="https://inibiq.hostorr.net/" class="btn btn-sm btn-gradient flex-grow-1">View Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lumine -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 project-card shadow-sm">
+                        <img src="assets/Lumine.jpeg" class="card-img-top project-img" alt="Lumine">
+                        <div class="card-body">
+                            <h4 class="card-title">Lumine</h4>
+                            <p class="card-text">This project is a personal website created to support a personal venture. It aims to professionally showcase the project's concept, services, and values in an engaging manner.</p>
+                            <div class="mb-3">
+                                <span class="badge tech-badge me-1">Filament</span>
+                                <span class="badge tech-badge me-1">Laravel</span>
+                                <span class="badge tech-badge">MySQL</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="https://luminestrategy.com/" class="btn btn-sm btn-gradient flex-grow-1">View Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-center h-100">
-          <div class="card-header bg-info text-white">Back End</div>
-          <div class="card-body">
-            <p>PHP<br>Laravel<br>Filament<br>MySQL<br>RESTful API</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card text-center h-100">
-          <div class="card-header bg-info text-white">Tools</div>
-          <div class="card-body">
-            <p>Git<br>GitHub<br>Bitbucket<br>Postman<br>VS Code</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Projects -->
-<section class="bg-info text-white py-5" id="projects">
-  <div class="container">
-    <h2 class="text-center section-title">My Projects</h2>
-    <div class="row g-4">
-      <!-- Project cards -->
-      <div class="col-md-4 project-card">
-        <div class="card">
-          <img src="assets/0001.jpg" class="card-img-top" alt="Hotel Project">
-          <div class="card-body">
-            <h5 class="card-title">Hotel</h5>
-            <p class="card-text">A management web app for hotel facilities covering core operational tasks.</p>
-            <p><strong>Tech:</strong> HTML, CSS, Bootstrap, Laravel, MySQL</p>
-            <a href="https://github.com/ayaKaadanDev/hotel" class="btn btn-info text-white">View Source</a>
-          </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title">Get In Touch</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <a class="btn btn-gradient w-100" href="mailto:ayakaadan17@gmail.com">
+                                <i class="bi bi-envelope me-2"></i> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center h-100 shadow-sm">
+                        <div class="card-body p-4">
+                            <a class="btn btn-gradient w-100" href="https://github.com/ayaKaadanDev">
+                                <i class="bi bi-github me-2"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4 project-card">
-        <div class="card">
-          <img src="assets/001.jpg" class="card-img-top" alt="Counsel Project">
-          <div class="card-body">
-            <h5 class="card-title">Counsel</h5>
-            <p class="card-text">A digital platform connecting certified experts with users seeking advice.</p>
-            <p><strong>Tech:</strong> HTML, CSS, Bootstrap, Laravel, MySQL</p>
-            <a href="https://github.com/ayaKaadanDev/counsel" class="btn btn-info text-white">View Source</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 project-card">
-        <div class="card">
-          <img src="assets/hh.png" class="card-img-top" alt="Home Harmony">
-          <div class="card-body">
-            <h5 class="card-title">Home Harmony</h5>
-            <p class="card-text">A renovation & design services platform combining function and style.</p>
-            <p><strong>Tech:</strong> Filament, Laravel, MySQL</p>
-            <a href="https://homeharmony.ae" class="btn btn-info text-white">View Website</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 project-card">
-        <div class="card">
-          <img src="assets/inipiq.png" class="card-img-top" alt="INIBIQ">
-          <div class="card-body">
-            <h5 class="card-title">INIBIQ</h5>
-            <p class="card-text">Modern banking site offering secure and user-friendly experience.</p>
-            <p><strong>Tech:</strong> Filament, Laravel, MySQL</p>
-            <a href="https://inibiq.hostorr.net/" class="btn btn-info text-white">View Website</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 project-card">
-        <div class="card">
-          <img src="assets/Lumine.jpeg" class="card-img-top" alt="Lumine">
-          <div class="card-body">
-            <h5 class="card-title">Lumine</h5>
-            <p class="card-text">This project is a personal website created to support a personal venture. It aims to professionally showcase the project's concept, services, and values in an engaging manner.</p>
-            <p><strong>Tech:</strong> Filament, Laravel, MySQL</p>
-            <a href="https://luminestrategy.com/" class="btn btn-info text-white">View Website</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Contact Me -->
-<section class="py-5" id="contact-me">
-  <div class="container">
-    <h2 class="text-center section-title">Contact Me</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-4 mb-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <a class="btn btn-info text-white" href="mailto:ayakaadan17@gmail.com">
-              <i class="bi bi-envelope"></i> Email
-            </a>
-          </div>
+    <!-- Footer -->
+    <footer class="bg-info-custom text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Eng.Aya Kaadan. All rights reserved.</p>
         </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div class="card text-center">
-          <div class="card-body">
-            <a class="btn btn-info text-white" href="https://github.com/ayaKaadanDev">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </footer>
 
-<!-- Footer -->
-<footer class="footer bg-info">
-  <div class="container">
-    <p>&copy; 2024 Eng.Aya Kaadan. All rights reserved.</p>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
