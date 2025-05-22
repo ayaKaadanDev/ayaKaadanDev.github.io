@@ -191,15 +191,17 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <lottie-player 
-                        src="https://assets9.lottiefiles.com/packages/lf20_5m6C73.json" 
-                        background="transparent" 
-                        speed="0.8" 
-                        style="width: 100%; max-width: 500px;"
-                        loop 
-                        autoplay>
-                    </lottie-player>
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.2/lottie.min.js"></script>
+                    <div id="lottie-animation" style="width: 100%; max-width: 500px; margin: 0 auto;"></div>
+                    <script>
+                        var animation = bodymovin.loadAnimation({
+                            container: document.getElementById('lottie-animation'),
+                            renderer: 'svg',
+                            loop: true,
+                            autoplay: true,
+                            path: 'https://assets9.lottiefiles.com/packages/lf20_5m6C73.json'
+                        });
+                    </script>
                 </div>
             </div>
         </div>
